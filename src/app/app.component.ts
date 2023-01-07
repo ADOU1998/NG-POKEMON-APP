@@ -1,21 +1,31 @@
 import { Pokemon } from './pokemon';
 import { Component, OnInit } from '@angular/core';
-import {POKEMONS} from './mock-pokemon-list';
+import { POKEMONS } from './mock-pokemon-list';
 
 @Component({
   selector: 'app-root',
-  template: ` <h1>LISTE DES POKEMONS </h1>`
+  templateUrl: 'app.component.html',
 })
 export class AppComponent implements OnInit{
   pokemonList: Pokemon[] = POKEMONS;
+  pokemonSelected: Pokemon|undefined;
 
   ngOnInit() {
     console.table(this.pokemonList);
-    this.selectPokemon(this.pokemonList[0])
   }
 
-  selectPokemon(pokemon: Pokemon){
-    console.log(`Vous avez cliqué sur le plokémon ${pokemon.name}`);
+  selectPokemon(pokemonId: string){
+ 
+   const pokemon: Pokemon|undefined = this.pokemonList.find(pokemon => pokemon.id == +pokemon)
+
+   if(pokemon){
+     console.log(`Vous avez cliqué sur le plokémon ${pokemon.name}`);
+     this.pokemonSelected = pokemon;
+   } else {
+    console.log(`Vous avez demandé un pokémon qui n'exite pas`);
+    this.pokemonSelected = pokemon;
+    
+   }
     
   }
 }
