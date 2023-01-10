@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
-            <div class="card horizontal">
+            <div class="card horizontal" pkmnBorderCard>
                 <div class="card-image">
                     <!-- Affichage d'une image -->
                     <img [src]="pokemon.picture" alt="">
@@ -12,7 +12,13 @@
                 <div class="card-stacked">
                     <div class="card-content">
                         <p>{{ pokemon.name }}</p>
-                        <p><small>{{ pokemon.created }}</small></p>
+                                                        <!-- pipe date -->
+                        <p><small>{{ pokemon.created | date:"dd/MM/yyyy" }}</small></p>
+
+                        <!-- Ajout des couleur via le pipe type color -->
+                        <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor }}">
+                            {{ type }}
+                        </span>
                     </div>
                 </div>
             </div>

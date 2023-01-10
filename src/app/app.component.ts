@@ -7,6 +7,8 @@ import { POKEMONS } from './mock-pokemon-list';
   templateUrl: 'app.component.html',
 })
 export class AppComponent implements OnInit{
+  
+  // Appel de la table Pokemon
   pokemonList: Pokemon[] = POKEMONS;
   pokemonSelected: Pokemon|undefined;
 
@@ -16,7 +18,7 @@ export class AppComponent implements OnInit{
 
   selectPokemon(pokemonId: string){
  
-   const pokemon: Pokemon|undefined = this.pokemonList.find(pokemon => pokemon.id == +pokemon)
+  const pokemon: Pokemon|undefined = this.pokemonList.find(pokemon => pokemon.id == +pokemon)
 
    if(pokemon){
      console.log(`Vous avez cliqué sur le plokémon ${pokemon.name}`);
