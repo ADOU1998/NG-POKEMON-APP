@@ -1,4 +1,4 @@
-import { Pokemon } from './../pokemon';
+import { Pokemon } from '../pokemon';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 // Impoter laliste de tous les pokémons
