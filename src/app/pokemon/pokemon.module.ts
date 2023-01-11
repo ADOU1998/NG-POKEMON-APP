@@ -1,3 +1,4 @@
+import { PokemonService } from './pokemon.service';
 import { BorderCardDirective } from './border-card.directive';
 import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.component';
 import { ListPokemonComponent } from './list-pokemon/list-pokemon.component';
@@ -24,6 +25,7 @@ const pokemonRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(pokemonRoutes)
-  ]
+  ],
+  providers: [PokemonService] //Injectiter un service dans un module 
 })
 export class PokemonModule { }
