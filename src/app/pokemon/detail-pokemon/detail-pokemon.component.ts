@@ -26,8 +26,13 @@ export class DetailPokemonComponent implements OnInit{
       this.pokemon = this.pokemonService.getPokemonById(+pokemonId)
       } 
     }
-    // rédiriger à un autre composant
+    // rédiriger à un autre composant (liste des pokemons)
     goToPokemonList(){
       this.router.navigate(['/pokemons']);
+    }
+
+    // Rédige vers le composant edit pokemon
+    goToEditPokemon(pokemon: Pokemon){
+      this.router.navigate(['/edit/pokemon', pokemon.id])
     }
   }
