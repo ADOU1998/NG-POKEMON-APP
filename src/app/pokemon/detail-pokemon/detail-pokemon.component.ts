@@ -23,12 +23,19 @@ export class DetailPokemonComponent implements OnInit{
 
       // vérifie si id du pokemon demandé existe 
       if(pokemonId){  
-      this.pokemon = this.pokemonService.getPokemonById(+pokemonId)
+        this.pokemonService.getPokemonById(+pokemonId)
+          .subscribe(pokemon => this.pokemon = pokemon);
       } 
     }
     // rédiriger à un autre composant (liste des pokemons)
     goToPokemonList(){
       this.router.navigate(['/pokemons']);
+    }
+
+    // Supprimer un pokemon via son Id
+    deletePokemon(pokemon: Pokemon) {
+      this.pokemonService.deletePokemonById(pokemon.id)
+        .subscribe(() => this.goToPokemonList());
     }
 
     // Rédige vers le composant edit pokemon

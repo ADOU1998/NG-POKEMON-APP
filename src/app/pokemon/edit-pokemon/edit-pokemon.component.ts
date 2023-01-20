@@ -34,7 +34,8 @@ export class EditPokemonComponent implements OnInit{
     // S'il trouve
     if(pokemonId){
       // Vérifie si ok
-      this.pokemon = this.pokemonService.getPokemonById(+pokemonId)
+      this.pokemonService.getPokemonById(+pokemonId)
+      .subscribe(pokemon => this.pokemon = pokemon);
     } else {
       // non ok
       this.pokemon = undefined;

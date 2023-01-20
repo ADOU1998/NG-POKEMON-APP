@@ -18,7 +18,8 @@ export class ListPokemonComponent implements OnInit{
 
   //  Connecter à notre service
    ngOnInit() {
-    this.pokemonList = this.pokemonService.getPokemonList();
+     this.pokemonService.getPokemonList().
+     subscribe(pokemonList => this.pokemonList );
    }
 
   // rédiriger vers un composant avec l'id

@@ -9,11 +9,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
+import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
 
 // Declare les routes (chemin)
 const pokemonRoutes: Routes = [
   // Les chemins
   { path: 'edit/pokemon/:id', component: EditPokemonComponent }, // Modifier un pokemon
+  { path: 'pokemon/add', component: AddPokemonComponent }, // Ajouter un pokemon 
   { path: 'pokemons', component: ListPokemonComponent }, // Affiche la liste des pokemons
   { path: 'pokemon/:id', component: DetailPokemonComponent }, // Affiche les détails des pokemons
 ];
@@ -26,7 +28,8 @@ const pokemonRoutes: Routes = [
     BorderCardDirective,
     PokemonTypeColorPipe,
     PokemonFormComponent,
-    EditPokemonComponent
+    EditPokemonComponent,
+    AddPokemonComponent
   ],
   imports: [
     CommonModule,
