@@ -10,14 +10,17 @@ import { FormsModule } from '@angular/forms';
 import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
+import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
+import { LoaderComponent } from './loader/loader.component';
+import { AuthGuard } from '../auth.guard';
 
 // Declare les routes (chemin)
 const pokemonRoutes: Routes = [
   // Les chemins
-  { path: 'edit/pokemon/:id', component: EditPokemonComponent }, // Modifier un pokemon
-  { path: 'pokemon/add', component: AddPokemonComponent }, // Ajouter un pokemon 
-  { path: 'pokemons', component: ListPokemonComponent }, // Affiche la liste des pokemons
-  { path: 'pokemon/:id', component: DetailPokemonComponent }, // Affiche les détails des pokemons
+  { path: 'edit/pokemon/:id', component: EditPokemonComponent, canActivate: [AuthGuard] }, // Modifier un pokemon
+  { path: 'pokemon/add', component: AddPokemonComponent, canActivate: [AuthGuard] }, // Ajouter un pokemon 
+  { path: 'pokemons', component: ListPokemonComponent, canActivate: [AuthGuard] }, // Affiche la liste des pokemons
+  { path: 'pokemon/:id', component: DetailPokemonComponent, canActivate: [AuthGuard] }, // Affiche les détails des pokemons
 ];
 
 
@@ -29,7 +32,9 @@ const pokemonRoutes: Routes = [
     PokemonTypeColorPipe,
     PokemonFormComponent,
     EditPokemonComponent,
-    AddPokemonComponent
+    AddPokemonComponent,
+    SearchPokemonComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,

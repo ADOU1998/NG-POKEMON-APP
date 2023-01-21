@@ -62,6 +62,16 @@ export class PokemonService {
     );
   } 
 
+  // Recherche d'un pokemon
+  searchPokemonList(term: string):Observable<Pokemon>{
+    return this.http.get<Pokemon[]>(`api/pokemons/?name=${term}`).pipe(
+      // Logger la liste
+      tap((response) => this.log(response)),
+      // lever les erreurs
+      catchError((error) => this.handleError(error, []))
+    )
+  }
+
   private log(response: any) {
     console.table(response);
   }

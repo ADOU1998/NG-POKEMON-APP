@@ -1,5 +1,8 @@
 <!-- Appel depuis materialize -->
 <div class="container">
+
+    <!-- liste pokemons -->
+    <!-- <app-search-pokemon></app-search-pokemon> -->
     <div class="row">
         <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
             <div (click)="goToPokemon(pokemon)" class="card horizontal" pkmnBorderCard>

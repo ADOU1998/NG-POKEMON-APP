@@ -46,8 +46,8 @@
 </div>
     <!-- Si le pokemon est inexistente -->
 <div class="row">
-    <div class="col s12 m8 offset-m2">
-        <h4 *ngIf='!pokemon' class="center" style="background-color: red;">Aucun pokémon à afficher !</h4>
-    </div>
+    <h4 *ngIf='!pokemon' class="center">
+      <app-loader></app-loader>
+    </h4>
 </div>
     
